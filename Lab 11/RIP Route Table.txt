@@ -1,0 +1,8 @@
+     10.0.0.0/8 is variably subnetted, 7 subnets, 2 masks
+R        10.0.0.0/16 [120/1] via 10.4.1.1, 00:00:12, GigabitEthernet0/1
+R        10.1.0.0/16 [120/2] via 10.4.1.1, 00:00:12, GigabitEthernet0/1
+C        10.2.0.0/16 is directly connected, GigabitEthernet0/0
+L        10.2.1.1/32 is directly connected, GigabitEthernet0/0
+R        10.3.0.0/16 [120/1] via 10.4.1.1, 00:00:12, GigabitEthernet0/1
+C        10.4.0.0/16 is directly connected, GigabitEthernet0/1
+L        10.4.1.2/32 is directly connected, GigabitEthernet0/1
