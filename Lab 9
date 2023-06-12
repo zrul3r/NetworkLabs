@@ -1,0 +1,81 @@
+Current configuration : 1021 bytes
+!
+version 15.0
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname BGSucks
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$F2hz$zTIxlnmHYziNyMyE5L/D/0
+enable password BG_is_not_a_state
+!
+no aaa new-model
+!
+no ipv6 cef
+ip source-route
+no ip routing
+no ip cef
+!
+!
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX1514AHF6
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ ip address 192.168.1.1 255.255.255.0
+ no ip route-cache
+ duplex auto
+ speed auto
+ no mop enabled
+!
+interface GigabitEthernet0/1
+ no ip address
+ no ip route-cache
+ shutdown
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ no ip route-cache
+ shutdown
+ duplex auto
+ speed auto
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+snmp-server community Community RO String
+!
+control-plane
+!
+!
+line con 0
+line aux 0
+line vty 0 4
+ password Still_not_a_sate_BG
+ login
+!
+scheduler allocate 20000 1000
+end
