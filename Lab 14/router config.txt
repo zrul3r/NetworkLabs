@@ -1,0 +1,75 @@
+hostname NapoleonR
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+!
+no ipv6 cef
+ip source-route
+ip cef
+!
+!
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX1514AHFD
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ ip address 131.183.222.199 255.255.254.0
+ ip nat outside
+ ip virtual-reassembly
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ ip address 10.1.1.1 255.255.0.0
+ ip nat inside
+ ip virtual-reassembly
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ ip address 10.3.1.2 255.255.255.252
+ ip nat inside
+ ip virtual-reassembly
+ duplex auto
+ speed auto
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+ip nat pool bigload 131.183.222.199 131.183.222.199 prefix-length 23
+ip nat inside source list 1 pool bigload overload
+ip route 0.0.0.0 0.0.0.0 131.183.222.1
+ip route 10.0.0.0 255.248.0.0 10.3.1.1
+ip route 10.0.0.0 255.255.0.0 10.3.1.1
+!
+access-list 1 permit 10.0.0.0 0.7.255.255
+!
+!
+!
+control-plane
+!
+!
+line con 0
+line aux 0
+line vty 0 4
+ login
+!
+scheduler allocate 20000 1000
+end
