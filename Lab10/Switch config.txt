@@ -1,0 +1,122 @@
+hostname Port_Clinton
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+system mtu routing 1500
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-2911218432
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2911218432
+ revocation-check none
+ rsakeypair TP-self-signed-2911218432
+!
+!
+crypto pki certificate chain TP-self-signed-2911218432
+ certificate self-signed 01
+  3082022B 30820194 A0030201 02020101 300D0609 2A864886 F70D0101 05050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 32393131 32313834 3332301E 170D3933 30333031 30303031
+  30345A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 39313132
+  31383433 3230819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100B3A1 707FB816 F6AE52E1 E7D06299 CD7330E2 B684A8BE 7DF0FCC5 A0336839
+  EAC562CE 30E3EAA3 F36B78E3 CD1B434D A93973DA C6FEF505 5842D7C5 57397C03
+  8F63AA83 99E363B1 3D1C9D7B AD3E2C55 EECFFF7A 0BB443A2 26A3E32A 64DC4F90
+  D7DEA82A 4F2A03FE 353C1732 5F040357 96967A71 DAD8C6A0 4EFFA58C 2E305CD5
+  D8590203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 301F0603
+  551D2304 18301680 147342AC 157F0449 C7DA980C 6FF49A8A 74689B9D CF301D06
+  03551D0E 04160414 7342AC15 7F0449C7 DA980C6F F49A8A74 689B9DCF 300D0609
+  2A864886 F70D0101 05050003 818100A9 5C780BB4 ABFB2116 804AA48C 61EBA006
+  3DADFE9B 513BDC15 6053F32A 346CA186 76099648 ADFAE9F2 C0C57F32 283AE9CA
+  364798AD 6F61217E 1F1AC7B7 E76FCB49 E736D079 01521C7C 573A5AF1 485420C5
+  8BF1DDA9 6ECE7371 A67E77CC C87BE138 EC50E9F2 CEE8028E 90A517C7 F2C0BE61
+  FD3B1B53 16F5BE49 95D0D657 63E896
+        quit
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ ip address 10.2.2.1 255.255.0.0
+ no ip route-cache
+!
+ip default-gateway 10.2.1.1
+ip http server
+ip http secure-server
+!
+!
+line con 0
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+end
